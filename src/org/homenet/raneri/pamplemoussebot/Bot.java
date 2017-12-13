@@ -3,8 +3,10 @@ package org.homenet.raneri.pamplemoussebot;
 import sx.blah.discord.api.ClientBuilder;
 import sx.blah.discord.api.IDiscordClient;
 import sx.blah.discord.api.events.EventDispatcher;
+import sx.blah.discord.api.events.IListener;
+import sx.blah.discord.handle.impl.events.ReadyEvent;
 
-public class Bot {
+public class Bot implements IListener<ReadyEvent> {
 	
 	
 	
@@ -17,6 +19,7 @@ public class Bot {
 		EventDispatcher dispacher = Globals.client.getDispatcher();
 		
 		dispacher.registerListener(new MessageListener());
+		dispacher.registerListener(new Bot());
 	}
 	
 	
@@ -42,6 +45,14 @@ public class Bot {
 			System.exit(0);
 			return null;
 		}
+	}
+
+
+
+	@Override
+	public void handle(ReadyEvent arg0) {
+		Globals.client.idle();
+		Globals.client.changePlayingText("!help for help");
 	}
 	
 }

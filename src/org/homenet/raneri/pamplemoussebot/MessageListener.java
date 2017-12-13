@@ -20,6 +20,11 @@ public class MessageListener implements IListener<MessageReceivedEvent> {
 			channel.sendMessage("Game Manual 1: https://firstinspiresst01.blob.core.windows.net/ftc/game-manual-dw-part-2.pdf");
 		}
 		
+		if (content.equals(Globals.prefix + "help")) {
+			channel.sendMessage("Game Manual 1: !gm1\n" + 
+								"Game Manual 2: !gm2\n");
+		}
+		
 	}
 	
 }
