@@ -9,6 +9,9 @@ public class Bot {
 	
 	
 	public static void main(String[] args) {
+		
+		Globals.prefix = "!";
+		
 		IDiscordClient client = createClient(Globals.token);
 		Globals.client = client;
 		EventDispatcher dispacher = Globals.client.getDispatcher();

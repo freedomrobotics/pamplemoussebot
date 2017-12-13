@@ -12,8 +12,12 @@ public class MessageListener implements IListener<MessageReceivedEvent> {
 		String content = event.getMessage().getContent();
 		IChannel channel = event.getMessage().getChannel();
 		
-		if (content.equals("test")) {
-			new MessageBuilder(Globals.client).withChannel(channel).withContent("Testing!");
+		if (content.equals(Globals.prefix + "gm1")) {
+			channel.sendMessage("Game Manual 1: https://firstinspiresst01.blob.core.windows.net/ftc/game-ew-manual-part-1.pdf");
+		}
+		
+		if (content.equals(Globals.prefix + "gm2")) {
+			channel.sendMessage("Game Manual 1: https://firstinspiresst01.blob.core.windows.net/ftc/game-manual-dw-part-2.pdf");
 		}
 		
 	}
